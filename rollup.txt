@@ -1,0 +1,47 @@
+mysql> select * from count_table;
++------+------+
+| pv   | name |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    3 | c    |
+|    4 | d    |
+|    4 | d    |
++------+------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(pv) as pv, name from count_table group by name with rollup;
++----+------+
+| pv | name |
++----+------+
+|  1 | a    |
+|  2 | b    |
+|  3 | c    |
+|  8 | d    |
+| 14 | NULL |
++----+------+
+5 rows in set (0.00 sec)
+
+mysql> with pv_with as (select sum(pv) as pv, name from count_table group by name with rollup) select pv, (ifnull(name, 'total')) as name from pv_with;
++------+-------+
+| pv   | name  |
++------+-------+
+|    1 | a     |
+|    2 | b     |
+|    3 | c     |
+|    8 | d     |
+|   14 | total |
++------+-------+
+5 rows in set (0.00 sec)
+
+mysql> with pv_with as (select sum(pv) as pv, name from count_table group by name with rollup) select pv, (ifnull(name, 'total')) as name from pv_with order by name = 'total', name asc;
++------+-------+
+| pv   | name  |
++------+-------+
+|   14 | total |
+|    1 | a     |
+|    2 | b     |
+|    3 | c     |
+|    8 | d     |
++------+-------+
+5 rows in set (0.00 sec)
