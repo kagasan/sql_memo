@@ -1,0 +1,30 @@
+mysql> select * from count_table;
++------+------+
+| pv   | name |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    3 | c    |
+|    4 | d    |
+|    4 | d    |
++------+------+
+5 rows in set (0.00 sec)
+
+mysql> 
+with 
+a_with as (select * from count_table where name = 'a' or name = 'c'),
+b_with as (select * from count_table where name = 'b' or name = 'd')
+select * from a_with
+union all
+select * from b_with
+order by name;
++------+------+
+| pv   | name |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    3 | c    |
+|    4 | d    |
+|    4 | d    |
++------+------+
+5 rows in set (0.00 sec)
