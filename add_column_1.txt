@@ -1,0 +1,28 @@
+# You can add column to specific position easily if AFTER is available.
+DROP DATABASE IF EXISTS sample_database;
+CREATE DATABASE sample_database;
+USE sample_database;
+CREATE TABLE sample_table1 (col1 INT, col2 INT, col3 INT);
+INSERT INTO sample_table1 VALUES(1, 2, 3);
+INSERT INTO sample_table1 VALUES(4, 5, 6);
+SELECT * FROM sample_table1 LIMIT 0, 10;
+
+ALTER TABLE sample_table1 ADD new_column_1 INT NULL;
+SELECT * FROM sample_table1 LIMIT 0, 10;
+
+ALTER TABLE sample_table1 ADD new_column_2 INT NULL AFTER col1;
+SELECT * FROM sample_table1 LIMIT 0, 10;
+
+
+
+col1    col2    col3
+1       2       3
+4       5       6
+
+col1    col2    col3    new_column_1
+1       2       3       NULL
+4       5       6       NULL
+
+col1    new_column_2    col2    col3    new_column_1
+1       NULL    2       3       NULL
+4       NULL    5       6       NULL
