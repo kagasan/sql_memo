@@ -1,0 +1,35 @@
+# Case : When you can NOT use AFTER
+DROP DATABASE IF EXISTS sample_database;
+CREATE DATABASE sample_database;
+USE sample_database;
+CREATE TABLE sample_table1 (
+    col1 INT,
+    col2 INT,
+    col3 INT
+);
+INSERT INTO sample_table1 VALUES(1, 2, 3);
+INSERT INTO sample_table1 VALUES(4, 5, 6);
+SELECT * FROM sample_table1 LIMIT 0, 10;
+
+CREATE TABLE sample_table1_wk (
+    col1 INT,
+    colX INT,
+    col2 INT,
+    col3 INT
+);
+INSERT INTO sample_table1_wk (col1, colX, col2, col3)
+SELECT col1, col1 * 10, col2, col3 FROM sample_table1;
+RENAME TABLE sample_table1 TO old_sample_table1;
+RENAME TABLE sample_table1_WK TO sample_table1;
+
+SELECT * FROM sample_table1 LIMIT 0, 10;
+DROP TABLE old_sample_table1;
+
+
+col1    col2    col3
+1       2       3
+4       5       6
+
+col1    colX    col2    col3
+1       10      2       3
+4       40      5       6
