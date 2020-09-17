@@ -20,7 +20,7 @@ CREATE TABLE sample_table1_wk (
 INSERT INTO sample_table1_wk (col1, colX, col2, col3)
 SELECT col1, col1 * 10, col2, col3 FROM sample_table1;
 RENAME TABLE sample_table1 TO old_sample_table1;
-RENAME TABLE sample_table1_WK TO sample_table1;
+RENAME TABLE sample_table1_wk TO sample_table1;
 
 SELECT * FROM sample_table1 LIMIT 0, 10;
 DROP TABLE old_sample_table1;
