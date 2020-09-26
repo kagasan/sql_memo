@@ -8,4 +8,5 @@
 - [prime number](https://kagasan.github.io/kgsql/?id=sWJMlU6waOyZRbkuhW47)
 - [add column](https://kagasan.github.io/kgsql/?id=rI47WQ8vJ5uHjvrt2iac)
 - [sum row](https://kagasan.github.io/kgsql/?id=lb9U1Y08a64zvOyybOmR)
-- [33](https://kagasan.github.io/kgsql/?id=euebZt0Sq2nnHJVI6qfN)
+- [33](https://kagasan.github.io/kgsql/?id=cSWQudJYrhBpoV0wP1fN)
+  - [answer](https://kagasan.github.io/kgsql/?id=YZC94q5YDSq9OOaA2IKo)
