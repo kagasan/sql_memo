@@ -7,3 +7,4 @@
 # kgsql
 - [prime number](https://kagasan.github.io/kgsql/?id=sWJMlU6waOyZRbkuhW47)
 - [add column](https://kagasan.github.io/kgsql/?id=rI47WQ8vJ5uHjvrt2iac)
+- [sum row](https://kagasan.github.io/kgsql/?id=lb9U1Y08a64zvOyybOmR)
